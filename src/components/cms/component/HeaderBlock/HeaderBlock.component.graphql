@@ -1,0 +1,3 @@
+fragment HeaderBlockData on HeaderBlock {
+  menuItems { ...ReferenceData }
+}

@@ -1,0 +1,41 @@
+{
+  "key": "HeaderBlock",
+  "displayName": "Site Header",
+  "description": "",
+  "baseType": "component",
+  "source": "",
+  "sortOrder": 0,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod"
+  ],
+  "usage": [
+    "property",
+    "instance"
+  ],
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "created": "2024-10-17T10:03:42.0955541+00:00",
+  "lastModified": "2024-10-17T10:04:28.222763+00:00",
+  "lastModifiedBy": "remko.jantzen@optimizely.com",
+  "properties": {
+    "menuItems": {
+      "type": "array",
+      "displayName": "Menu Items",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "items": {
+        "type": "contentReference",
+        "allowedTypes": [
+          "Page"
+        ],
+        "restrictedTypes": []
+      }
+    }
+  }
+}
