@@ -14,9 +14,13 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 const documents = {
-    "fragment HeaderBlockData on HeaderBlock {\n  menuItems {\n    ...ReferenceData\n  }\n}": types.HeaderBlockDataFragmentDoc,
+    "fragment BasicFooterAldarData on BasicFooterAldar {\n  FooterLinks {\n    ...LinkItemData\n  }\n}": types.BasicFooterAldarDataFragmentDoc,
+    "fragment FooterAldarBlockData on FooterAldarBlock {\n  FooterSection {\n    SectionTitle\n    SectionLinks {\n      title\n      text\n      url {\n        default\n      }\n    }\n  }\n}": types.FooterAldarBlockDataFragmentDoc,
+    "fragment FooterSectionData on FooterSection {\n  SectionTitle\n  SectionLinks {\n    ...LinkItemData\n  }\n}": types.FooterSectionDataFragmentDoc,
+    "fragment HeaderLogoData on HeaderLogo {\n  _metadata {\n    key\n  }\n}": types.HeaderLogoDataFragmentDoc,
     "fragment HomeSectionOneTypeData on HomeSectionOneType {\n  MainTitle\n  SecondaryTitle\n  Description\n  BannerImage {\n    ...LinkData\n  }\n}": types.HomeSectionOneTypeDataFragmentDoc,
     "fragment HomeSectionOneTypePropertyData on HomeSectionOneTypeProperty {\n  MainTitle\n  SecondaryTitle\n  Description\n  BannerImage {\n    ...LinkData\n  }\n}": types.HomeSectionOneTypePropertyDataFragmentDoc,
+    "fragment NavigationBlockData on NavigationBlock {\n  headerLogo {\n    url {\n      default\n    }\n  }\n  headerItems {\n    title\n    url {\n      base\n      default\n    }\n  }\n}": types.NavigationBlockDataFragmentDoc,
     "fragment PageSeoSettingsData on PageSeoSettings {\n  MetaTitle\n  MetaDescription\n  SharingImage {\n    ...ReferenceData\n  }\n  GraphType\n}": types.PageSeoSettingsDataFragmentDoc,
     "fragment PageSeoSettingsPropertyData on PageSeoSettingsProperty {\n  MetaTitle\n  MetaDescription\n  SharingImage {\n    ...ReferenceData\n  }\n  GraphType\n}": types.PageSeoSettingsPropertyDataFragmentDoc,
     "fragment SimpleCardData on SimpleCard {\n  image {\n    ...LinkData\n  }\n}": types.SimpleCardDataFragmentDoc,
@@ -29,6 +33,8 @@ const documents = {
     "fragment ExperienceOneData on ExperienceOne {\n  Title\n  ...ExperienceData\n}": types.ExperienceOneDataFragmentDoc,
     "fragment PrideOfPlaceTypeData on PrideOfPlaceType {\n  Title\n  description\n  ImageList {\n    ...LinkItemData\n  }\n  ...ExperienceData\n}": types.PrideOfPlaceTypeDataFragmentDoc,
     "fragment HomePageTypeData on HomePageType {\n  Block {\n    ...HomeSectionOneTypePropertyData\n  }\n}": types.HomePageTypeDataFragmentDoc,
+    "query getAldarFooter {\n  FooterAldarBlock {\n    items {\n      FooterSection {\n        SectionTitle\n        SectionLinks {\n          title\n          text\n          url {\n            default\n          }\n        }\n      }\n    }\n  }\n}": types.getAldarFooterDocument,
+    "query getAldarHeader {\n  NavigationBlock {\n    items {\n      headerLogo {\n        url {\n          default\n        }\n      }\n      headerItems {\n        title\n        url {\n          base\n          default\n        }\n      }\n    }\n  }\n}": types.getAldarHeaderDocument,
     "fragment IContentData on _IContent\n    {\n        _metadata {\n            ...IContentInfo\n        }\n        _type: __typename\n    }\n\nfragment CompositionData on ICompositionNode {\n        name: displayName\n        layoutType: nodeType    \n        type\n        key\n        template: displayTemplateKey\n        settings: displaySettings {\n            key\n            value\n        }\n        ... on ICompositionStructureNode {\n            nodes @recursive(depth: 10) {\n                name: displayName\n            }\n        }\n        ... on ICompositionElementNode {\n            element {\n                ...ElementData\n            }\n        }\n    }\n\nfragment IElementData on _IElement {\n        _metadata {\n            ...IContentInfo\n        }\n        _type: __typename\n    }\n\nfragment ElementData on _IElement {\n        ...IElementData\n    }\n\nfragment BlockData on _IContent {\n        ...IContentData\n    }\n\nfragment PageData on _IContent {\n        ...IContentData\n    }\n\nfragment LinkData on ContentUrl {\n        base\n        hierarchical\n        default\n    }\n\nfragment ReferenceData on ContentReference {\n        key\n        url {\n            ...LinkData\n        }\n    }\n\nfragment IContentInfo on IContentMetadata {\n        key\n        locale\n        types\n        displayName\n        version\n        url {\n            ...LinkData\n        }\n    }\n\nfragment IContentListItem on _IContent {\n        ...IContentData\n    }\n\nfragment ExperienceData on _IExperience {\n        composition {\n            ...CompositionData\n        }\n    }\n\nfragment LinkItemData on Link {\n        title\n        text\n        target\n        url {\n            ...LinkData\n        }\n    }": types.IContentDataFragmentDoc,
     "query getContentById($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {\n        content: _Content(\n            where: {\n                _or: [\n                    { _metadata: { key: { eq: $key }, version: { eq: $version } } }\n                    { _metadata: { url: { hierarchical: { eq: $path }, base: { eq: $domain } }, version: { eq: $version } } }\n                ]\n            }\n            locale: $locale\n        ) {\n            total\n            items {\n                ...BlockData\n                ...PageData\n            }\n        }\n    }\n\nquery getContentByPath($path: String!, $version: String, $locale: [Locales!], $domain: String) {\n        content: _Content(\n            where: {\n                _metadata: { url: { default: { eq: $path }, base: { eq: $domain } }, version: { eq: $version }}\n            }\n            locale: $locale\n        ) {\n            total\n            items {\n                ...PageData\n            }\n        }\n    }\n\nquery getContentType($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {\n        content: _Content(\n            where: {\n                _or: [\n                    { _metadata: { key: { eq: $key }, version: { eq: $version } } }\n                    { _metadata: { url: { hierarchical: { eq: $path }, base: { eq: $domain } }, version: { eq: $version } } }\n                ]\n            }\n            locale: $locale\n        ) {\n            total\n            items {\n                _metadata {\n                    types\n                }\n            }\n        }\n    }": types.getContentByIdDocument,
 };
@@ -50,7 +56,19 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "fragment HeaderBlockData on HeaderBlock {\n  menuItems {\n    ...ReferenceData\n  }\n}"): (typeof documents)["fragment HeaderBlockData on HeaderBlock {\n  menuItems {\n    ...ReferenceData\n  }\n}"];
+export function gql(source: "fragment BasicFooterAldarData on BasicFooterAldar {\n  FooterLinks {\n    ...LinkItemData\n  }\n}"): (typeof documents)["fragment BasicFooterAldarData on BasicFooterAldar {\n  FooterLinks {\n    ...LinkItemData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment FooterAldarBlockData on FooterAldarBlock {\n  FooterSection {\n    SectionTitle\n    SectionLinks {\n      title\n      text\n      url {\n        default\n      }\n    }\n  }\n}"): (typeof documents)["fragment FooterAldarBlockData on FooterAldarBlock {\n  FooterSection {\n    SectionTitle\n    SectionLinks {\n      title\n      text\n      url {\n        default\n      }\n    }\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment FooterSectionData on FooterSection {\n  SectionTitle\n  SectionLinks {\n    ...LinkItemData\n  }\n}"): (typeof documents)["fragment FooterSectionData on FooterSection {\n  SectionTitle\n  SectionLinks {\n    ...LinkItemData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment HeaderLogoData on HeaderLogo {\n  _metadata {\n    key\n  }\n}"): (typeof documents)["fragment HeaderLogoData on HeaderLogo {\n  _metadata {\n    key\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -59,6 +77,10 @@ export function gql(source: "fragment HomeSectionOneTypeData on HomeSectionOneTy
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment HomeSectionOneTypePropertyData on HomeSectionOneTypeProperty {\n  MainTitle\n  SecondaryTitle\n  Description\n  BannerImage {\n    ...LinkData\n  }\n}"): (typeof documents)["fragment HomeSectionOneTypePropertyData on HomeSectionOneTypeProperty {\n  MainTitle\n  SecondaryTitle\n  Description\n  BannerImage {\n    ...LinkData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment NavigationBlockData on NavigationBlock {\n  headerLogo {\n    url {\n      default\n    }\n  }\n  headerItems {\n    title\n    url {\n      base\n      default\n    }\n  }\n}"): (typeof documents)["fragment NavigationBlockData on NavigationBlock {\n  headerLogo {\n    url {\n      default\n    }\n  }\n  headerItems {\n    title\n    url {\n      base\n      default\n    }\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -107,6 +129,14 @@ export function gql(source: "fragment PrideOfPlaceTypeData on PrideOfPlaceType {
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment HomePageTypeData on HomePageType {\n  Block {\n    ...HomeSectionOneTypePropertyData\n  }\n}"): (typeof documents)["fragment HomePageTypeData on HomePageType {\n  Block {\n    ...HomeSectionOneTypePropertyData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "query getAldarFooter {\n  FooterAldarBlock {\n    items {\n      FooterSection {\n        SectionTitle\n        SectionLinks {\n          title\n          text\n          url {\n            default\n          }\n        }\n      }\n    }\n  }\n}"): (typeof documents)["query getAldarFooter {\n  FooterAldarBlock {\n    items {\n      FooterSection {\n        SectionTitle\n        SectionLinks {\n          title\n          text\n          url {\n            default\n          }\n        }\n      }\n    }\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "query getAldarHeader {\n  NavigationBlock {\n    items {\n      headerLogo {\n        url {\n          default\n        }\n      }\n      headerItems {\n        title\n        url {\n          base\n          default\n        }\n      }\n    }\n  }\n}"): (typeof documents)["query getAldarHeader {\n  NavigationBlock {\n    items {\n      headerLogo {\n        url {\n          default\n        }\n      }\n      headerItems {\n        title\n        url {\n          base\n          default\n        }\n      }\n    }\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

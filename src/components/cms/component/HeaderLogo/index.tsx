@@ -1,12 +1,12 @@
 import { type CmsComponent } from "@remkoj/optimizely-cms-react";
-import { HeaderBlockDataFragmentDoc, type HeaderBlockDataFragment } from "@/gql/graphql";
+import { HeaderLogoDataFragmentDoc, type HeaderLogoDataFragment } from "@/gql/graphql";
 
 /**
- * Site Header
+ * HeaderLogo
  * 
  */
-export const HeaderBlockComponent : CmsComponent<HeaderBlockDataFragment> = ({ data, children }) => {
-    const componentName = 'Site Header'
+export const HeaderLogoComponent : CmsComponent<HeaderLogoDataFragment> = ({ data, children }) => {
+    const componentName = 'HeaderLogo'
     const componentInfo = ''
     return <div className="w-full border-y border-y-solid border-y-slate-900 py-2 mb-4">
         <div className="font-bold italic">{ componentName }</div>
@@ -15,7 +15,7 @@ export const HeaderBlockComponent : CmsComponent<HeaderBlockDataFragment> = ({ d
         { children && <div className="mt-4 mx-4 flex flex-col">{ children }</div>}
     </div>
 }
-HeaderBlockComponent.displayName = "Site Header (Component/HeaderBlock)"
-HeaderBlockComponent.getDataFragment = () => ['HeaderBlockData', HeaderBlockDataFragmentDoc]
+HeaderLogoComponent.displayName = "HeaderLogo (Component/HeaderLogo)"
+HeaderLogoComponent.getDataFragment = () => ['HeaderLogoData', HeaderLogoDataFragmentDoc]
 
-export default HeaderBlockComponent
+export default HeaderLogoComponent

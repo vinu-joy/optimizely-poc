@@ -1,0 +1,13 @@
+fragment FooterAldarBlockData on FooterAldarBlock {
+    FooterSection {
+      SectionTitle
+      SectionLinks {
+        title
+        text
+        url {
+          default
+        }
+      }
+    }
+ 
+}

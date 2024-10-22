@@ -1,0 +1,14 @@
+fragment NavigationBlockData on NavigationBlock {
+   headerLogo {
+      url {
+        default
+      }
+    }
+    headerItems {
+      title
+      url {
+        base
+        default
+      }
+    }
+}

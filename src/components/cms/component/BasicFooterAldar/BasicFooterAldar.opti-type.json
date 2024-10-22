@@ -1,7 +1,7 @@
 {
-  "key": "HeaderBlock",
-  "displayName": "Site Header",
-  "description": "",
+  "key": "BasicFooterAldar",
+  "displayName": "BasicFooterAldar",
+  "description": "BasicFooterAldar",
   "baseType": "component",
   "source": "",
   "sortOrder": 0,
@@ -16,25 +16,22 @@
   ],
   "mayContainTypes": [],
   "mediaFileExtensions": [],
-  "created": "2024-10-17T10:03:42.0955541+00:00",
-  "lastModified": "2024-10-17T10:04:28.222763+00:00",
-  "lastModifiedBy": "remko.jantzen@optimizely.com",
+  "created": "2024-10-22T09:04:04.24495+00:00",
+  "lastModified": "2024-10-22T10:05:00.6079421+00:00",
+  "lastModifiedBy": "vjoy@aldar.com",
   "properties": {
-    "menuItems": {
+    "FooterLinks": {
       "type": "array",
-      "displayName": "Menu Items",
-      "description": "",
+      "displayName": "FooterLinks",
+      "description": "FooterLinks",
       "localized": false,
       "required": false,
       "group": "Information",
       "sortOrder": 0,
       "editorSettings": {},
       "items": {
-        "type": "contentReference",
-        "allowedTypes": [
-          "Page"
-        ],
-        "restrictedTypes": []
+        "type": "component",
+        "contentType": "link"
       }
     }
   }

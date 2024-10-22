@@ -9,18 +9,49 @@ export const LinkDataFragmentDoc = gql`
   default
 }
     `;
-export const ReferenceDataFragmentDoc = gql`
-    fragment ReferenceData on ContentReference {
-  key
+export const LinkItemDataFragmentDoc = gql`
+    fragment LinkItemData on Link {
+  title
+  text
+  target
   url {
     ...LinkData
   }
 }
     `;
-export const HeaderBlockDataFragmentDoc = gql`
-    fragment HeaderBlockData on HeaderBlock {
-  menuItems {
-    ...ReferenceData
+export const BasicFooterAldarDataFragmentDoc = gql`
+    fragment BasicFooterAldarData on BasicFooterAldar {
+  FooterLinks {
+    ...LinkItemData
+  }
+}
+    `;
+export const FooterAldarBlockDataFragmentDoc = gql`
+    fragment FooterAldarBlockData on FooterAldarBlock {
+  FooterSection {
+    SectionTitle
+    SectionLinks {
+      title
+      text
+      url {
+        default
+      }
+    }
+  }
+}
+    `;
+export const FooterSectionDataFragmentDoc = gql`
+    fragment FooterSectionData on FooterSection {
+  SectionTitle
+  SectionLinks {
+    ...LinkItemData
+  }
+}
+    `;
+export const HeaderLogoDataFragmentDoc = gql`
+    fragment HeaderLogoData on HeaderLogo {
+  _metadata {
+    key
   }
 }
     `;
@@ -30,6 +61,30 @@ export const HomeSectionOneTypeDataFragmentDoc = gql`
   SecondaryTitle
   Description
   BannerImage {
+    ...LinkData
+  }
+}
+    `;
+export const NavigationBlockDataFragmentDoc = gql`
+    fragment NavigationBlockData on NavigationBlock {
+  headerLogo {
+    url {
+      default
+    }
+  }
+  headerItems {
+    title
+    url {
+      base
+      default
+    }
+  }
+}
+    `;
+export const ReferenceDataFragmentDoc = gql`
+    fragment ReferenceData on ContentReference {
+  key
+  url {
     ...LinkData
   }
 }
@@ -169,16 +224,6 @@ export const ExperienceOneDataFragmentDoc = gql`
   ...ExperienceData
 }
     `;
-export const LinkItemDataFragmentDoc = gql`
-    fragment LinkItemData on Link {
-  title
-  text
-  target
-  url {
-    ...LinkData
-  }
-}
-    `;
 export const PrideOfPlaceTypeDataFragmentDoc = gql`
     fragment PrideOfPlaceTypeData on PrideOfPlaceType {
   Title
@@ -229,6 +274,44 @@ export const IContentListItemFragmentDoc = gql`
   ...IContentData
 }
     `;
+export const getAldarFooterDocument = gql`
+    query getAldarFooter {
+  FooterAldarBlock {
+    items {
+      FooterSection {
+        SectionTitle
+        SectionLinks {
+          title
+          text
+          url {
+            default
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+export const getAldarHeaderDocument = gql`
+    query getAldarHeader {
+  NavigationBlock {
+    items {
+      headerLogo {
+        url {
+          default
+        }
+      }
+      headerItems {
+        title
+        url {
+          base
+          default
+        }
+      }
+    }
+  }
+}
+    `;
 export const getContentByIdDocument = gql`
     query getContentById($key: String!, $version: String, $locale: [Locales!], $path: String, $domain: String) {
   content: _Content(
@@ -239,8 +322,12 @@ export const getContentByIdDocument = gql`
     items {
       ...BlockData
       ...PageData
-      ...HeaderBlockData
+      ...BasicFooterAldarData
+      ...FooterAldarBlockData
+      ...FooterSectionData
+      ...HeaderLogoData
       ...HomeSectionOneTypeData
+      ...NavigationBlockData
       ...PageSeoSettingsData
       ...SimpleCardData
       ...BlankExperienceData
@@ -256,10 +343,15 @@ ${IContentDataFragmentDoc}
 ${IContentInfoFragmentDoc}
 ${LinkDataFragmentDoc}
 ${PageDataFragmentDoc}
-${HeaderBlockDataFragmentDoc}
-${ReferenceDataFragmentDoc}
+${BasicFooterAldarDataFragmentDoc}
+${LinkItemDataFragmentDoc}
+${FooterAldarBlockDataFragmentDoc}
+${FooterSectionDataFragmentDoc}
+${HeaderLogoDataFragmentDoc}
 ${HomeSectionOneTypeDataFragmentDoc}
+${NavigationBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
+${ReferenceDataFragmentDoc}
 ${SimpleCardDataFragmentDoc}
 ${BlankExperienceDataFragmentDoc}
 ${PageSeoSettingsPropertyDataFragmentDoc}
@@ -274,7 +366,6 @@ ${VideoElementDataFragmentDoc}
 ${DestinationPageTypeDataFragmentDoc}
 ${ExperienceOneDataFragmentDoc}
 ${PrideOfPlaceTypeDataFragmentDoc}
-${LinkItemDataFragmentDoc}
 ${HomePageTypeDataFragmentDoc}
 ${HomeSectionOneTypePropertyDataFragmentDoc}`;
 export const getContentByPathDocument = gql`
@@ -338,6 +429,12 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    getAldarFooter(variables?: Schema.getAldarFooterQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getAldarFooterQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getAldarFooterQuery>(getAldarFooterDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAldarFooter', 'query', variables);
+    },
+    getAldarHeader(variables?: Schema.getAldarHeaderQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getAldarHeaderQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getAldarHeaderQuery>(getAldarHeaderDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAldarHeader', 'query', variables);
+    },
     getContentById(variables: Schema.getContentByIdQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getContentByIdQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getContentByIdQuery>(getContentByIdDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getContentById', 'query', variables);
     },

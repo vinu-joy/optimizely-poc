@@ -1,0 +1,23 @@
+{
+  "key": "HeaderLogo",
+  "displayName": "HeaderLogo",
+  "description": "",
+  "baseType": "component",
+  "source": "",
+  "sortOrder": 0,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod"
+  ],
+  "usage": [
+    "property",
+    "instance"
+  ],
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "created": "2024-10-21T06:32:33.3172421+00:00",
+  "lastModified": "2024-10-21T06:32:33.3172421+00:00",
+  "lastModifiedBy": "vjoy@aldar.com",
+  "properties": {}
+}

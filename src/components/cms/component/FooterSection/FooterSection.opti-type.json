@@ -1,0 +1,51 @@
+{
+  "key": "FooterSection",
+  "displayName": "FooterSection",
+  "description": "FooterSection",
+  "baseType": "component",
+  "source": "",
+  "sortOrder": 0,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod"
+  ],
+  "usage": [
+    "property",
+    "instance"
+  ],
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "created": "2024-10-21T11:45:06.307293+00:00",
+  "lastModified": "2024-10-21T11:53:06.155275+00:00",
+  "lastModifiedBy": "vjoy@aldar.com",
+  "properties": {
+    "SectionTitle": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "SectionTitle",
+      "description": "SectionTitle",
+      "localized": false,
+      "required": true,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "SectionLinks": {
+      "type": "array",
+      "format": "LinkCollection",
+      "displayName": "SectionLinks",
+      "description": "SectionLinks",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "minItems": 1,
+      "items": {
+        "type": "component",
+        "contentType": "link"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+query getAldarFooter {
+  FooterAldarBlock {
+   items{
+    FooterSection {
+      SectionTitle,
+      SectionLinks {
+        title
+        text
+        url {
+          default
+        }
+      }
+    }
+  }
+  } 
+  }

@@ -1,0 +1,38 @@
+{
+  "key": "FooterAldarBlock",
+  "displayName": "FooterAldarBlock",
+  "description": "FooterAldarBlock for footer ",
+  "baseType": "component",
+  "source": "",
+  "sortOrder": 0,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod"
+  ],
+  "usage": [
+    "property",
+    "instance"
+  ],
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "created": "2024-10-22T06:18:08.8611252+00:00",
+  "lastModified": "2024-10-22T06:18:55.2392621+00:00",
+  "lastModifiedBy": "vjoy@aldar.com",
+  "properties": {
+    "FooterSection": {
+      "type": "array",
+      "displayName": "FooterSection",
+      "description": "FooterSection",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {},
+      "items": {
+        "type": "component",
+        "contentType": "FooterSection"
+      }
+    }
+  }
+}

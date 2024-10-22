@@ -1,0 +1,19 @@
+query getAldarHeader{
+  NavigationBlock {
+    items{
+      headerLogo {
+        url {
+          default
+        }
+      }
+      headerItems {
+        title
+        url {
+          base
+          default
+        } 
+      } 
+    
+    }
+  }
+}

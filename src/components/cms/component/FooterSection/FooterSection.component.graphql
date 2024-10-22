@@ -1,0 +1,4 @@
+fragment FooterSectionData on FooterSection {
+  SectionTitle
+  SectionLinks { ...LinkItemData }
+}
