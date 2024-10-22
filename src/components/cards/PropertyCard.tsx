@@ -3,9 +3,27 @@ import Link from 'next/link'; // Use Next.js' Link for navigation
 import Image from 'next/image'; // Optional: Use Next.js' Image for optimized images
 import styles from './propertyCard.module.css'; // Assuming you're using CSS Modules for styling
 
-const PropertyCard = ({ property }) => {
+interface Property {
+  propertyId: string;
+  gallery: string[];
+  unitType: string;
+  offPlan: boolean;
+  resale: boolean;
+  projectLabel: string;
+  bedrooms: number;
+  bathrooms?: number; // Optional field, as it may not always be available
+  saleableArea: number;
+  sellingPrice?: number; // Optional field, as it may not always be available
+  location: string[];
+}
+
+interface PropertyCardProps {
+  property: Property;
+}
+
+const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
   const {
-    propertyId, // Make sure you have the propertyId
+    propertyId,
     gallery,
     unitType,
     offPlan,
@@ -18,12 +36,14 @@ const PropertyCard = ({ property }) => {
     location,
   } = property;
 
+  console.log("property",property);
+
   return (
     <div className={styles['property-border']}>
       <div className={styles['property-card']}>
         {/* Clickable Image that leads to the details page */}
         <Link href={`/property/details/${propertyId}`} passHref>
-          <a className={styles['property-image-link']}>
+          <div className={styles['property-image-link']}>
             <div className={styles['property-image']}>
               {/* Use Next.js Image for optimized images */}
               <Image
@@ -37,7 +57,7 @@ const PropertyCard = ({ property }) => {
                 <i className="fas fa-share-alt"></i>
               </div>
             </div>
-          </a>
+          </div>
         </Link>
 
         <div className={styles['property-info']}>
@@ -45,6 +65,7 @@ const PropertyCard = ({ property }) => {
           <div className={styles['property-tags']}>
             <span className={styles['tag unit-type']}>{unitType}</span>
             {offPlan && <span className={styles['tag off-plan']}>Off-Plan</span>}
+            {resale && <span className={styles['tag resale']}>Resale</span>}
           </div>
 
           {/* Price */}
