@@ -35,7 +35,7 @@ const Footer: React.FC = async () => {
   }
 
   return (
-      <footer className="container mx-auto p-5 bg-black text-white py-10">
+      <footer className=" mx-auto p-5 bg-black text-white py-10">
         <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {footerData
             .filter((section): section is FooterSection => section !== null) // Filter out null sections

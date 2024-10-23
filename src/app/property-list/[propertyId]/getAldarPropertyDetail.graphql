@@ -1,0 +1,7 @@
+query getAldarPropertyDetail($propertyId: String!) {
+  PropertyDetail(where: { propertyId_eq: $propertyId }) {
+    items {
+      propertyName
+    }
+  }
+}

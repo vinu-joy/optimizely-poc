@@ -16,7 +16,6 @@ export const SiteHeader = async () => {
     headerLogo: { url: { default: string } };
     headerItems: { title: string; url: { base: string; default: string } }[];
   };
-  console.log("headerData", headerData);
 
   // Pass data as props to a Client Component, if needed
   return (

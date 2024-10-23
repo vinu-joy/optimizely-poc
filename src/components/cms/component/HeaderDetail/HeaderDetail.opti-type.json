@@ -1,0 +1,57 @@
+{
+  "key": "HeaderDetail",
+  "displayName": "HeaderDetail",
+  "description": "HeaderDetail",
+  "baseType": "component",
+  "source": "",
+  "sortOrder": 0,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod"
+  ],
+  "usage": [
+    "property",
+    "instance"
+  ],
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "created": "2024-10-23T10:03:15.2091167+00:00",
+  "lastModified": "2024-10-23T10:04:13.0193023+00:00",
+  "lastModifiedBy": "vjoy@aldar.com",
+  "properties": {
+    "propertyName": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "propertyName",
+      "description": "propertyName",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "propertyLocation": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "propertyLocation",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "propertyType": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "propertyType",
+      "description": "",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    }
+  }
+}

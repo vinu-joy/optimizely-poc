@@ -17,6 +17,7 @@ const documents = {
     "fragment BasicFooterAldarData on BasicFooterAldar {\n  FooterLinks {\n    ...LinkItemData\n  }\n}": types.BasicFooterAldarDataFragmentDoc,
     "fragment FooterAldarBlockData on FooterAldarBlock {\n  FooterSection {\n    SectionTitle\n    SectionLinks {\n      title\n      text\n      url {\n        default\n      }\n    }\n  }\n}": types.FooterAldarBlockDataFragmentDoc,
     "fragment FooterSectionData on FooterSection {\n  SectionTitle\n  SectionLinks {\n    ...LinkItemData\n  }\n}": types.FooterSectionDataFragmentDoc,
+    "fragment HeaderDetailData on HeaderDetail {\n  propertyName\n  propertyLocation\n  propertyType\n}": types.HeaderDetailDataFragmentDoc,
     "fragment HeaderLogoData on HeaderLogo {\n  _metadata {\n    key\n  }\n}": types.HeaderLogoDataFragmentDoc,
     "fragment HomeSectionOneTypeData on HomeSectionOneType {\n  MainTitle\n  SecondaryTitle\n  Description\n  BannerImage {\n    ...LinkData\n  }\n}": types.HomeSectionOneTypeDataFragmentDoc,
     "fragment HomeSectionOneTypePropertyData on HomeSectionOneTypeProperty {\n  MainTitle\n  SecondaryTitle\n  Description\n  BannerImage {\n    ...LinkData\n  }\n}": types.HomeSectionOneTypePropertyDataFragmentDoc,
@@ -24,6 +25,7 @@ const documents = {
     "fragment PageSeoSettingsData on PageSeoSettings {\n  MetaTitle\n  MetaDescription\n  SharingImage {\n    ...ReferenceData\n  }\n  GraphType\n}": types.PageSeoSettingsDataFragmentDoc,
     "fragment PageSeoSettingsPropertyData on PageSeoSettingsProperty {\n  MetaTitle\n  MetaDescription\n  SharingImage {\n    ...ReferenceData\n  }\n  GraphType\n}": types.PageSeoSettingsPropertyDataFragmentDoc,
     "fragment SimpleCardData on SimpleCard {\n  image {\n    ...LinkData\n  }\n}": types.SimpleCardDataFragmentDoc,
+    "fragment DetailHeaderData on DetailHeader {\n  propertyName\n  propertyLocation\n}": types.DetailHeaderDataFragmentDoc,
     "fragment ExperienceElementTestData on ExperienceElementTest {\n  title\n}": types.ExperienceElementTestDataFragmentDoc,
     "fragment ImageElementData on ImageElement {\n  image {\n    ...ReferenceData\n  }\n  altText\n}": types.ImageElementDataFragmentDoc,
     "fragment TitleOneData on TitleOne {\n  Text\n}": types.TitleOneDataFragmentDoc,
@@ -68,6 +70,10 @@ export function gql(source: "fragment FooterSectionData on FooterSection {\n  Se
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
+export function gql(source: "fragment HeaderDetailData on HeaderDetail {\n  propertyName\n  propertyLocation\n  propertyType\n}"): (typeof documents)["fragment HeaderDetailData on HeaderDetail {\n  propertyName\n  propertyLocation\n  propertyType\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
 export function gql(source: "fragment HeaderLogoData on HeaderLogo {\n  _metadata {\n    key\n  }\n}"): (typeof documents)["fragment HeaderLogoData on HeaderLogo {\n  _metadata {\n    key\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
@@ -93,6 +99,10 @@ export function gql(source: "fragment PageSeoSettingsPropertyData on PageSeoSett
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment SimpleCardData on SimpleCard {\n  image {\n    ...LinkData\n  }\n}"): (typeof documents)["fragment SimpleCardData on SimpleCard {\n  image {\n    ...LinkData\n  }\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment DetailHeaderData on DetailHeader {\n  propertyName\n  propertyLocation\n}"): (typeof documents)["fragment DetailHeaderData on DetailHeader {\n  propertyName\n  propertyLocation\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

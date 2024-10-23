@@ -1,0 +1,4 @@
+fragment DetailHeaderData on DetailHeader {
+  propertyName
+  propertyLocation
+}

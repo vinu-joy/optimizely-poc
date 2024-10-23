@@ -42,7 +42,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({ property }) => {
     <div className={styles['property-border']}>
       <div className={styles['property-card']}>
         {/* Clickable Image that leads to the details page */}
-        <Link href={`/property/details/${propertyId}`} passHref>
+        <Link href={`/property-list/${propertyId}`} passHref>
           <div className={styles['property-image-link']}>
             <div className={styles['property-image']}>
               {/* Use Next.js Image for optimized images */}

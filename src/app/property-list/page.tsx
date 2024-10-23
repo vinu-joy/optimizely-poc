@@ -19,7 +19,6 @@ const Properties = () => {
 
   useEffect(() => {
     fetchProperties();
-    console.log("selectedFilters", selectedFilters);
   }, [selectedFilters]);
 
   // Fetch data from the API

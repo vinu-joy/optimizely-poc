@@ -48,6 +48,13 @@ export const FooterSectionDataFragmentDoc = gql`
   }
 }
     `;
+export const HeaderDetailDataFragmentDoc = gql`
+    fragment HeaderDetailData on HeaderDetail {
+  propertyName
+  propertyLocation
+  propertyType
+}
+    `;
 export const HeaderLogoDataFragmentDoc = gql`
     fragment HeaderLogoData on HeaderLogo {
   _metadata {
@@ -141,6 +148,12 @@ export const ElementDataFragmentDoc = gql`
   ...IElementData
 }
     `;
+export const DetailHeaderDataFragmentDoc = gql`
+    fragment DetailHeaderData on DetailHeader {
+  propertyName
+  propertyLocation
+}
+    `;
 export const ExperienceElementTestDataFragmentDoc = gql`
     fragment ExperienceElementTestData on ExperienceElementTest {
   title
@@ -189,6 +202,7 @@ export const CompositionDataFragmentDoc = gql`
   ... on ICompositionElementNode {
     element {
       ...ElementData
+      ...DetailHeaderData
       ...ExperienceElementTestData
       ...ImageElementData
       ...TitleOneData
@@ -325,6 +339,7 @@ export const getContentByIdDocument = gql`
       ...BasicFooterAldarData
       ...FooterAldarBlockData
       ...FooterSectionData
+      ...HeaderDetailData
       ...HeaderLogoData
       ...HomeSectionOneTypeData
       ...NavigationBlockData
@@ -347,6 +362,7 @@ ${BasicFooterAldarDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
 ${FooterAldarBlockDataFragmentDoc}
 ${FooterSectionDataFragmentDoc}
+${HeaderDetailDataFragmentDoc}
 ${HeaderLogoDataFragmentDoc}
 ${HomeSectionOneTypeDataFragmentDoc}
 ${NavigationBlockDataFragmentDoc}
@@ -359,6 +375,7 @@ ${ExperienceDataFragmentDoc}
 ${CompositionDataFragmentDoc}
 ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
+${DetailHeaderDataFragmentDoc}
 ${ExperienceElementTestDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${TitleOneDataFragmentDoc}
@@ -396,6 +413,7 @@ ${ExperienceDataFragmentDoc}
 ${CompositionDataFragmentDoc}
 ${ElementDataFragmentDoc}
 ${IElementDataFragmentDoc}
+${DetailHeaderDataFragmentDoc}
 ${ExperienceElementTestDataFragmentDoc}
 ${ImageElementDataFragmentDoc}
 ${TitleOneDataFragmentDoc}
