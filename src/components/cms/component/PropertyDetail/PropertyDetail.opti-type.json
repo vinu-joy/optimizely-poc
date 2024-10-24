@@ -1,0 +1,57 @@
+{
+  "key": "PropertyDetail",
+  "displayName": "PropertyDetail",
+  "description": "PropertyDetail",
+  "baseType": "component",
+  "source": "",
+  "sortOrder": 0,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod"
+  ],
+  "usage": [
+    "property",
+    "instance"
+  ],
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "created": "2024-10-23T15:00:27.962668+00:00",
+  "lastModified": "2024-10-23T15:01:54.529026+00:00",
+  "lastModifiedBy": "vjoy@aldar.com",
+  "properties": {
+    "propertyId": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "propertyId",
+      "description": "propertyId",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "propertyName": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "propertyName",
+      "description": "propertyName",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    },
+    "propertyLocation": {
+      "type": "string",
+      "format": "shortString",
+      "displayName": "propertyLocation",
+      "description": "propertyLocation",
+      "localized": false,
+      "required": false,
+      "group": "Information",
+      "sortOrder": 0,
+      "editorSettings": {}
+    }
+  }
+}

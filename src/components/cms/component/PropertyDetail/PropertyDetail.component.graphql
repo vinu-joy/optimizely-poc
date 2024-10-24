@@ -1,0 +1,5 @@
+fragment PropertyDetailData on PropertyDetail {
+  propertyId
+  propertyName
+  propertyLocation
+}

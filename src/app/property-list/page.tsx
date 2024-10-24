@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import PropertyCard from "@/components/cards/PropertyCard";
 import CommunityListSkeleton from "@/components/skeleton/CommunityListSkeleton";
 import PropertyCardSkeleton from "@/components/skeleton/PropertyCardSkeleton";
-import PageLoader from "@/components/loader/pageLoader";
+import PageLoader from "@/components/loader/PageLoader";
 
 const Properties = () => {
   const [data, setData] = useState<any>(null);

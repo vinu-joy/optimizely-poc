@@ -14,6 +14,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 const documents = {
+    "query getAllPropertyDetails {\n  HeaderDetail {\n    items {\n      propertyName\n      propertyLocation\n      propertyType\n      propertyId\n      unitType\n      bedrooms\n      unitSize\n      completionDate\n      saleType\n      price\n      amenities\n      description\n      communityName\n      communityTitle\n      communityDescription\n      communityButtonText\n      downPaymentPercentage\n      easyInstallmentPercentage\n      handoverPercentage\n    }\n  }\n}": types.getAllPropertyDetailsDocument,
     "fragment BasicFooterAldarData on BasicFooterAldar {\n  FooterLinks {\n    ...LinkItemData\n  }\n}": types.BasicFooterAldarDataFragmentDoc,
     "fragment FooterAldarBlockData on FooterAldarBlock {\n  FooterSection {\n    SectionTitle\n    SectionLinks {\n      title\n      text\n      url {\n        default\n      }\n    }\n  }\n}": types.FooterAldarBlockDataFragmentDoc,
     "fragment FooterSectionData on FooterSection {\n  SectionTitle\n  SectionLinks {\n    ...LinkItemData\n  }\n}": types.FooterSectionDataFragmentDoc,
@@ -24,6 +25,7 @@ const documents = {
     "fragment NavigationBlockData on NavigationBlock {\n  headerLogo {\n    url {\n      default\n    }\n  }\n  headerItems {\n    title\n    url {\n      base\n      default\n    }\n  }\n}": types.NavigationBlockDataFragmentDoc,
     "fragment PageSeoSettingsData on PageSeoSettings {\n  MetaTitle\n  MetaDescription\n  SharingImage {\n    ...ReferenceData\n  }\n  GraphType\n}": types.PageSeoSettingsDataFragmentDoc,
     "fragment PageSeoSettingsPropertyData on PageSeoSettingsProperty {\n  MetaTitle\n  MetaDescription\n  SharingImage {\n    ...ReferenceData\n  }\n  GraphType\n}": types.PageSeoSettingsPropertyDataFragmentDoc,
+    "fragment PropertyDetailData on PropertyDetail {\n  propertyId\n  propertyName\n  propertyLocation\n}": types.PropertyDetailDataFragmentDoc,
     "fragment SimpleCardData on SimpleCard {\n  image {\n    ...LinkData\n  }\n}": types.SimpleCardDataFragmentDoc,
     "fragment DetailHeaderData on DetailHeader {\n  propertyName\n  propertyLocation\n}": types.DetailHeaderDataFragmentDoc,
     "fragment ExperienceElementTestData on ExperienceElementTest {\n  title\n}": types.ExperienceElementTestDataFragmentDoc,
@@ -55,6 +57,10 @@ const documents = {
  */
 export function gql(source: string): unknown;
 
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "query getAllPropertyDetails {\n  HeaderDetail {\n    items {\n      propertyName\n      propertyLocation\n      propertyType\n      propertyId\n      unitType\n      bedrooms\n      unitSize\n      completionDate\n      saleType\n      price\n      amenities\n      description\n      communityName\n      communityTitle\n      communityDescription\n      communityButtonText\n      downPaymentPercentage\n      easyInstallmentPercentage\n      handoverPercentage\n    }\n  }\n}"): (typeof documents)["query getAllPropertyDetails {\n  HeaderDetail {\n    items {\n      propertyName\n      propertyLocation\n      propertyType\n      propertyId\n      unitType\n      bedrooms\n      unitSize\n      completionDate\n      saleType\n      price\n      amenities\n      description\n      communityName\n      communityTitle\n      communityDescription\n      communityButtonText\n      downPaymentPercentage\n      easyInstallmentPercentage\n      handoverPercentage\n    }\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
@@ -95,6 +101,10 @@ export function gql(source: "fragment PageSeoSettingsData on PageSeoSettings {\n
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "fragment PageSeoSettingsPropertyData on PageSeoSettingsProperty {\n  MetaTitle\n  MetaDescription\n  SharingImage {\n    ...ReferenceData\n  }\n  GraphType\n}"): (typeof documents)["fragment PageSeoSettingsPropertyData on PageSeoSettingsProperty {\n  MetaTitle\n  MetaDescription\n  SharingImage {\n    ...ReferenceData\n  }\n  GraphType\n}"];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "fragment PropertyDetailData on PropertyDetail {\n  propertyId\n  propertyName\n  propertyLocation\n}"): (typeof documents)["fragment PropertyDetailData on PropertyDetail {\n  propertyId\n  propertyName\n  propertyLocation\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

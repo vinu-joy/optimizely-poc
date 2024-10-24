@@ -1,7 +1,25 @@
-query getAldarPropertyDetail($propertyId: String!) {
-  PropertyDetail(where: { propertyId_eq: $propertyId }) {
+query getAllPropertyDetails {
+  HeaderDetail {
     items {
       propertyName
+      propertyLocation
+      propertyType
+      propertyId
+      unitType
+      bedrooms
+      unitSize
+      completionDate
+      saleType
+      price
+      amenities
+      description
+      communityName
+      communityTitle
+      communityDescription
+      communityButtonText
+      downPaymentPercentage
+      easyInstallmentPercentage
+      handoverPercentage
     }
   }
 }

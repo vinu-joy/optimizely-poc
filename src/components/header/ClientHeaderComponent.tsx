@@ -51,8 +51,6 @@ const ClientHeaderComponent: FC<ClientHeaderComponentProps> = ({
       <nav className="flex items-center space-x-6">
         {headerItems.map((item, index) => {
           const isActive = currentPath === item.url.default.replace(/\/+$/, "");
-          console.log("currentPath", currentPath);
-          console.log("item.url.default", item.url.default);
 
           return (
             <Link

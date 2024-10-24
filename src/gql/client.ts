@@ -106,6 +106,13 @@ export const PageSeoSettingsDataFragmentDoc = gql`
   GraphType
 }
     `;
+export const PropertyDetailDataFragmentDoc = gql`
+    fragment PropertyDetailData on PropertyDetail {
+  propertyId
+  propertyName
+  propertyLocation
+}
+    `;
 export const SimpleCardDataFragmentDoc = gql`
     fragment SimpleCardData on SimpleCard {
   image {
@@ -288,6 +295,33 @@ export const IContentListItemFragmentDoc = gql`
   ...IContentData
 }
     `;
+export const getAllPropertyDetailsDocument = gql`
+    query getAllPropertyDetails {
+  HeaderDetail {
+    items {
+      propertyName
+      propertyLocation
+      propertyType
+      propertyId
+      unitType
+      bedrooms
+      unitSize
+      completionDate
+      saleType
+      price
+      amenities
+      description
+      communityName
+      communityTitle
+      communityDescription
+      communityButtonText
+      downPaymentPercentage
+      easyInstallmentPercentage
+      handoverPercentage
+    }
+  }
+}
+    `;
 export const getAldarFooterDocument = gql`
     query getAldarFooter {
   FooterAldarBlock {
@@ -344,6 +378,7 @@ export const getContentByIdDocument = gql`
       ...HomeSectionOneTypeData
       ...NavigationBlockData
       ...PageSeoSettingsData
+      ...PropertyDetailData
       ...SimpleCardData
       ...BlankExperienceData
       ...DestinationPageTypeData
@@ -368,6 +403,7 @@ ${HomeSectionOneTypeDataFragmentDoc}
 ${NavigationBlockDataFragmentDoc}
 ${PageSeoSettingsDataFragmentDoc}
 ${ReferenceDataFragmentDoc}
+${PropertyDetailDataFragmentDoc}
 ${SimpleCardDataFragmentDoc}
 ${BlankExperienceDataFragmentDoc}
 ${PageSeoSettingsPropertyDataFragmentDoc}
@@ -447,6 +483,9 @@ const defaultWrapper: SdkFunctionWrapper = (action, _operationName, _operationTy
 
 export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = defaultWrapper) {
   return {
+    getAllPropertyDetails(variables?: Schema.getAllPropertyDetailsQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getAllPropertyDetailsQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<Schema.getAllPropertyDetailsQuery>(getAllPropertyDetailsDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAllPropertyDetails', 'query', variables);
+    },
     getAldarFooter(variables?: Schema.getAldarFooterQueryVariables, requestHeaders?: GraphQLClientRequestHeaders): Promise<Schema.getAldarFooterQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<Schema.getAldarFooterQuery>(getAldarFooterDocument, variables, {...requestHeaders, ...wrappedRequestHeaders}), 'getAldarFooter', 'query', variables);
     },

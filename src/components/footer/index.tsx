@@ -27,7 +27,6 @@ const Footer: React.FC = async () => {
   // Ensure the fetched data is in the expected structure
   const footerData = data?.FooterAldarBlock?.items?.[0]?.FooterSection;
 
-  console.log("footerData", footerData);
 
   // If no data is fetched, return null or a fallback UI
   if (!footerData) {

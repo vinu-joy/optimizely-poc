@@ -9,7 +9,7 @@ export const SiteHeader = async () => {
   const headerData = data?.NavigationBlock?.items?.[0];
 
   if (!headerData) {
-    return null; // or a fallback UI
+    return null; // or a fallback UIp
   }
 
   const { headerLogo, headerItems } = headerData as {
