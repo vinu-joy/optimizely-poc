@@ -3,6 +3,7 @@ import TitleCard from "./TitleCard";
 import PropertyBriefDetail from "./PropertyBriefDetail";
 import RealEstateCard from "./RealEstateCard";
 import PaymentPlan from "./PaymentPlan";
+import PhotoGallery from "./PhotoGallery";
 
 // Define the shared PropertyDetailFields type
 export interface PropertyDetailFields {
@@ -25,6 +26,19 @@ export interface PropertyDetailFields {
   downPaymentPercentage?: string | null;
   easyInstallmentPercentage?: string | null;
   handoverPercentage?: string | null;
+  mainPhoto?: {
+    url: {
+      default: string | null;
+    } | null;
+  } | null;
+
+  additionalPhotos?:
+    | {
+        url: {
+          default: string | null;
+        } | null;
+      }[]
+    | null;
 }
 
 const PropertyDetail = async ({
@@ -55,13 +69,9 @@ const PropertyDetail = async ({
       <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mb-8">
         <TitleCard fields={propertyDetail} />
         {/* Placeholder for image slider or gallery */}
-        <div className="w-full md:w-1/2">
+        <div className="w-full">
           {/* Replace this div with an image slider component if needed */}
-          <img
-            src="https://via.placeholder.com/600x300"
-            alt="Property"
-            className="rounded-lg"
-          />
+          <PhotoGallery fields={propertyDetail} />
         </div>
       </div>
 

@@ -318,6 +318,16 @@ export const getAllPropertyDetailsDocument = gql`
       downPaymentPercentage
       easyInstallmentPercentage
       handoverPercentage
+      mainPhoto {
+        url {
+          default
+        }
+      }
+      additionalPhotos {
+        url {
+          default
+        }
+      }
     }
   }
 }
