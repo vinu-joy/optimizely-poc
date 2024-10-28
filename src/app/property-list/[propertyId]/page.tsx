@@ -27,19 +27,23 @@ export interface PropertyDetailFields {
   easyInstallmentPercentage?: string | null;
   handoverPercentage?: string | null;
   mainPhoto?: {
-    url: {
-      default: string | null;
+    __typename?: string; // Add typename to account for GraphQL response
+    url?: {
+      __typename?: string; // Add typename here as well
+      default?: string | null;
     } | null;
   } | null;
-
   additionalPhotos?:
-    | {
-        url: {
-          default: string | null;
+    | ({
+        __typename?: string; // Add typename here too
+        url?: {
+          __typename?: string; // Add typename for url field
+          default?: string | null;
         } | null;
-      }[]
+      } | null)[]
     | null;
 }
+
 
 const PropertyDetail = async ({
   params,
