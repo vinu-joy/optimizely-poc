@@ -2,3 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.property-border{
+    border:1px solid #d6dae2;
+    padding: 16px 16px 12px;
+    box-shadow: 0 0 0 0 transparent,0 0 0 0 transparent;
+    transition-timing-function:cubic-bezier(.25,.46,.45,.94);
+    transition-duration: .4s;
+    transition-property: transform, box-shadow;
+    z-index: 2;
+    background-color: #fff;
+}
+
+.property-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; 
+  }
+  
+  .property-card:hover {
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .property-image {
+    position: relative;
+  }
+  
+  .property-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 8px;
+    border-radius: 50%;
+  }
+  .property-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  
+  .property-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap; /* Allow the tags to wrap to the next line */
+    flex-grow: 1; /* Take up remaining space */
+  }
+  
+  .tag {
+    background-color: #ffeccf;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #ff6f00;
+  }
+  
+  .property-price-card {
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap; /* Prevent the price from wrapping */
+    padding-left: 15px;
+    margin-left: auto; /* Align the price to the right */
+    color: #000;
+  }
+  
+  .property-title {
+    padding: 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .property-location {
+    padding: 0 15px;
+    color: #888;
+  }
+  
+  .property-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  
+  .register-btn {
+    position: relative;
+    background-color: #ff6f00;
+    color: white;
+    padding: 12px 20px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 50px; /* Fully rounded corners */
+    cursor: pointer;
+    transition: color 0.4s ease, background-color 0.4s ease, border 0.4s ease;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .register-btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start from the left */
+    width: 100%;
+    height: 100%;
+    transition: left 0.4s ease; /* Transition the slide */
+    z-index: 0;
+  }
+  
+  .register-btn:hover {
+    color: #ff6f00; /* Text color changes to orange */
+    background-color: white;
+    border: 2px solid #ff6f00; /* Border becomes visible */
+  }
+  
+  .register-btn:hover:before {
+    left: 0; /* Sliding effect from left to right */
+  }
+  
+  .register-btn:active {
+    transform: translateY(2px); /* Slight press effect */
+  }
+  

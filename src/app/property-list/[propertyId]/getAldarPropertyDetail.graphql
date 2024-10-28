@@ -20,6 +20,9 @@ query getAllPropertyDetails {
       downPaymentPercentage
       easyInstallmentPercentage
       handoverPercentage
+      latitude
+      longitude
+      zoom
       mainPhoto {
         url {
         default

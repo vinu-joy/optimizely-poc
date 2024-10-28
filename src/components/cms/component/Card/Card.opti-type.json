@@ -1,0 +1,23 @@
+{
+  "key": "Card",
+  "displayName": "Card",
+  "description": "sample description can be added here",
+  "baseType": "component",
+  "source": "",
+  "sortOrder": 0,
+  "features": [
+    "localization",
+    "versioning",
+    "publishPeriod"
+  ],
+  "usage": [
+    "property",
+    "instance"
+  ],
+  "mayContainTypes": [],
+  "mediaFileExtensions": [],
+  "created": "2024-10-25T12:57:36.938814+00:00",
+  "lastModified": "2024-10-25T12:57:36.938814+00:00",
+  "lastModifiedBy": "vjoy@aldar.com",
+  "properties": {}
+}

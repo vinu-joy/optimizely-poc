@@ -26,6 +26,13 @@ export const BasicFooterAldarDataFragmentDoc = gql`
   }
 }
     `;
+export const CardDataFragmentDoc = gql`
+    fragment CardData on Card {
+  _metadata {
+    key
+  }
+}
+    `;
 export const FooterAldarBlockDataFragmentDoc = gql`
     fragment FooterAldarBlockData on FooterAldarBlock {
   FooterSection {
@@ -318,6 +325,9 @@ export const getAllPropertyDetailsDocument = gql`
       downPaymentPercentage
       easyInstallmentPercentage
       handoverPercentage
+      latitude
+      longitude
+      zoom
       mainPhoto {
         url {
           default
@@ -381,6 +391,7 @@ export const getContentByIdDocument = gql`
       ...BlockData
       ...PageData
       ...BasicFooterAldarData
+      ...CardData
       ...FooterAldarBlockData
       ...FooterSectionData
       ...HeaderDetailData
@@ -405,6 +416,7 @@ ${LinkDataFragmentDoc}
 ${PageDataFragmentDoc}
 ${BasicFooterAldarDataFragmentDoc}
 ${LinkItemDataFragmentDoc}
+${CardDataFragmentDoc}
 ${FooterAldarBlockDataFragmentDoc}
 ${FooterSectionDataFragmentDoc}
 ${HeaderDetailDataFragmentDoc}

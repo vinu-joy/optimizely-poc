@@ -4,6 +4,8 @@ import PropertyBriefDetail from "./PropertyBriefDetail";
 import RealEstateCard from "./RealEstateCard";
 import PaymentPlan from "./PaymentPlan";
 import PhotoGallery from "./PhotoGallery";
+import TabNavigation from "./TabNavigation";
+import SimilarList from "./SimilarList";
 
 // Define the shared PropertyDetailFields type
 export interface PropertyDetailFields {
@@ -43,7 +45,6 @@ export interface PropertyDetailFields {
       } | null)[]
     | null;
 }
-
 
 const PropertyDetail = async ({
   params,
@@ -100,36 +101,14 @@ const PropertyDetail = async ({
         <PaymentPlan fields={propertyDetail} />
       </div>
 
-      {/* Location Section */}
+      {/* Location Section with Tab Navigation */}
       <div className="mb-8">
-        <h3 className="text-2xl font-bold mb-4">Location</h3>
-        <div className="w-full">
-          {/* Replace this with a Google Maps component */}
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093747!2d144.9537363156606!3d-37.81720997975162!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5778c2b2b2760e2!2sVictoria%20Harbour%2C%20Melbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sin!4v1632751180030!5m2!1sen!2sin"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen={true}
-            loading="lazy"
-          ></iframe>
-        </div>
+        <TabNavigation />
       </div>
 
       {/* Similar Units Section */}
       <div className="mb-8">
-        <h3 className="text-2xl font-bold mb-4">Similar Units</h3>
-        {/* Replace this with a similar units component */}
-        <div className="flex space-x-4">
-          <div className="w-1/4 bg-gray-100 p-4 rounded-lg shadow-md">
-            <h5>Unit 1</h5>
-            <p>Details about Unit 1</p>
-          </div>
-          <div className="w-1/4 bg-gray-100 p-4 rounded-lg shadow-md">
-            <h5>Unit 2</h5>
-            <p>Details about Unit 2</p>
-          </div>
-        </div>
+        <SimilarList /> {/* Use the SimilarList component here */}
       </div>
     </div>
   );

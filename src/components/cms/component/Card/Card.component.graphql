@@ -1,0 +1,3 @@
+fragment CardData on Card {
+  _metadata { key }
+}
